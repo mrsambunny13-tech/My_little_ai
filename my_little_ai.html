@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Little AI 🤖🎀</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#fff4fa,#f5efff);color:#443747;min-height:100vh}
+.container{max-width:900px;margin:auto;padding:28px 18px}.hero{text-align:center;padding:35px 10px}
+.robot{font-size:72px;animation:float 3s ease-in-out infinite}.tag{display:inline-block;background:#fff;border-radius:30px;padding:8px 15px;font-size:13px;box-shadow:0 5px 20px #d8c9d855}
+h1{font-size:42px;margin:15px 0 8px;background:linear-gradient(90deg,#e77aaa,#9b83df);color:transparent;background-clip:text}
+.subtitle{font-size:17px;color:#766779}
+.card{background:#ffffffcc;backdrop-filter:blur(10px);border:1px solid #fff;border-radius:28px;padding:22px;box-shadow:0 12px 35px #b9a4bd33;margin:18px 0}
+.chat{height:310px;overflow:auto;padding:8px}.msg{padding:12px 15px;border-radius:20px;margin:10px 0;max-width:80%;line-height:1.4}.bot{background:#f3eaff}.user{background:#ffe3f0;margin-left:auto}
+.row{display:flex;gap:9px;margin-top:12px}.input{flex:1;border:0;outline:0;border-radius:22px;padding:14px 17px;background:#f8f4f8;font-size:15px}
+button{border:0;border-radius:22px;padding:13px 18px;background:linear-gradient(90deg,#ed8fba,#a28be4);color:white;font-weight:bold;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{text-align:center;padding:18px;background:#fff;border-radius:22px}.feature b{display:block;margin-top:7px}
+footer{text-align:center;padding:25px;color:#8b7d89;font-size:13px}
+@keyframes float{50%{transform:translateY(-10px)}}@media(max-width:600px){h1{font-size:34px}.features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<section class="hero">
+<div class="robot">🤖🎀</div>
+<span class="tag">✨ Your tiny AI bestie</span>
+<h1>My Little AI</h1>
+<p class="subtitle">Ask me anything… I'm listening 💌</p>
+</section>
+
+<div class="card">
+<div id="chat" class="chat">
+<div class="msg bot">Hiii! 🥺🩷 I'm your little AI bestie. Tell me what's on your mind!</div>
+</div>
+<div class="row">
+<input id="input" class="input" placeholder="Type something cute...">
+<button onclick="send()">Send 💌</button>
+</div>
+</div>
+
+<div class="features">
+<div class="feature">💗<b>Motivation</b><small>Need a little boost?</small></div>
+<div class="feature">🌸<b>Ideas</b><small>Captions & creativity</small></div>
+<div class="feature">✨<b>Chat</b><small>Your friendly AI buddy</small></div>
+</div>
+
+<footer>Made with ♡ for dreamers & creators 🎀</footer>
+</div>
+
+<script>
+const input=document.getElementById("input"),chat=document.getElementById("chat");
+function add(text,type){let d=document.createElement("div");d.className="msg "+type;d.textContent=text;chat.appendChild(d);chat.scrollTop=chat.scrollHeight}
+function send(){let x=input.value.trim();if(!x)return;add(x,"user");input.value="";
+setTimeout(()=>{let t=x.toLowerCase(),r=t.includes("motivat")?"You are doing better than you think. 🌷 Take one tiny step—you've got this! ✨":t.includes("sad")?"Come here 🫂💗 It's okay to have a hard day. Be gentle with yourself.":t.includes("caption")?"Soft heart, pretty mind, main-character energy. 🎀✨":`Awww, that's interesting! 🥺💗 Tell me more and I'll be your little brainstorming buddy!`;add(r,"bot")},500)}
+input.addEventListener("keydown",e=>{if(e.key==="Enter")send()});
+</script>
+</body>
+</html>
